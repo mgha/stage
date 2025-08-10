@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: aminaghannem/node20-app
-  pullPolicy: IfNotPresent
-  tag: "v2"
+  repository: mghannem/mgc
+  pullPolicy: Never
+  tag: "v1"
 
 service:
   type: ClusterIP
@@ -17,9 +17,9 @@ ingress:
   enabled: false
   annotations: {}
   hosts:
-    - host: chart-example.local
+    - host: node-app-host
       paths:
-        - path: /
+        - path: /app
           pathType: ImplementationSpecific
   tls: []
 

@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "node20-app.fullname" . }}
+  name: {{ include "node-app.fullname" . }}
   labels:
-    {{- include "node20-app.labels" . | nindent 4 }}
+    {{- include "node-app.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "node20-app.selectorLabels" . | nindent 6 }}
+      {{- include "node-app.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,14 +18,22 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "node20-app.labels" . | nindent 8 }}
+        {{- include "node-app.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
       containers:
-        - name: node20-app
+        - name: node-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: app-code
+              mountPath: /app/src
           ports:
             - containerPort: 3000
+      volumes:
+        - name: app-code
+          hostPath:
+            path: /Users/mghannem/Sites/stage/src  # à adapter à ton système
+            type: Directory
