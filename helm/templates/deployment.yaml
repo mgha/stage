@@ -35,5 +35,5 @@ spec:
       volumes:
         - name: app-code
           hostPath:
-            path: /Users/mghannem/Sites/stage/src  # à adapter à ton système
+            path: /Users/mghannem/Sites/stage/src  # à mettre dans values-local
             type: Directory
