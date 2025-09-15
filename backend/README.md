@@ -23,7 +23,7 @@ git clone https://github.com/mgha/stage.git
 
 modifier la valeur suivante: 
 ```bash
-path: /Users/mghannem/Sites/stage/src
+path: /Users/mghannem/Sites/stage/backend/src
 ```
 
 ....to be completed
@@ -31,7 +31,7 @@ path: /Users/mghannem/Sites/stage/src
 ## ⚙️ Installer l'application avec Helm :
 
 ```bash
-helm install stage ./helm
+helm install stage ../helm
 ```
 
 ## 📡 Vérifier le déploiement :
