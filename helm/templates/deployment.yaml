@@ -26,7 +26,6 @@ spec:
       containers:
         - name: node-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: app-code
               mountPath: /app/src
