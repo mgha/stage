@@ -12,4 +12,4 @@ RUN npm install
 RUN npm install -g ts-node nodemon
 
 # Commande de démarrage avec nodemon pour le watch mode
-CMD ["npx", "ts-node-dev", "--respawn", "--transpile-only", "src/index.ts"]
+CMD ["npx", "ts-node-dev", "--respawn", "--transpile-only", "--watch", "src", "src/main.ts"]
