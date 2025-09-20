@@ -26,7 +26,6 @@ spec:
       containers:
         - name: node-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: app-code
               mountPath: /app/src
@@ -35,5 +34,5 @@ spec:
       volumes:
         - name: app-code
           hostPath:
-            path: /Users/mghannem/Sites/stage/src  # à mettre dans values-local
+            path: /Users/mghannem/Sites/stage/backend/src  # à mettre dans values-local
             type: Directory

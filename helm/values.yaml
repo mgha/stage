@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: mghannem/mgc
+  repository: mghannem/mg-app-nodejs
   pullPolicy: Never
-  tag: "v1"
+  tag: "v2"
 
 service:
   type: ClusterIP
